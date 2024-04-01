@@ -36,13 +36,42 @@ def setup_sidebar():
     None
     """
 
-    st.header("Welcome  to chat with a PDF")
+    st.header("Welcome to ASK a PDF")
     with st.sidebar:
-        st.title('Chat with a PDF')
+        st.title('Ask a PDF')
+        model_type = st.radio("Choose the model type:",
+                              ('OpenAI Models', 'Local Models'))
+        st.markdown("""
+- **OpenAI Models**: 
+    - **Embedding**: `Text-embedding-ada-002-v2`.
+    - **LLM**: `GPT-3.5-turbo-instruct`.
+        
+- **Local Models**: 
+    - **Embedding**:`llama2`
+    - **LLM**: `Mistral 7B`
+""", unsafe_allow_html=True)
+
         add_vertical_space(1)
         st.write('---')
+        st.markdown(
+            """
+            ## Tools and Frameworks Used
+            - [streamlit](https://streamlit.io/)
+            - [Ollama](https://ollama.com/), [Ollama Docker Image](https://github.com/ollama/ollama?tab=readme-ov-file)
+            - [langchain](https://python.langchain.com/docs/get_started/introduction)
+            - [Milvus](https://milvus.io/) to be added
+            """
+        )
+        st.write('---')
+
         st.write(
             'Created by [Rabee Zyoud](https://www.linkedin.com/in/zyoud/)')
+
+    if model_type == 'OpenAI Models':
+        return 'open_ai'
+    elif model_type == 'Local Models':
+        return 'local'
+    return None
 
 
 def text_from_pdf() -> Tuple[str | None, str | None]:
