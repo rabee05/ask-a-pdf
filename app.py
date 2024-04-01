@@ -22,7 +22,7 @@ load_dotenv()
 
 for dir in DATA_DIR:
     if not (os.path.exists(os.path.join(project_root, DATA_DIR[dir]))):
-        os.mkdir(os.path.join(project_root, DATA_DIR[dir]))
+        os.makedirs(os.path.join(project_root, DATA_DIR[dir]), exist_ok=True)
 
 
 def main():
