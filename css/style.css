@@ -1,0 +1,43 @@
+[data-testid="stTextInput"] > div > div > input {
+  font-size: 20px;
+  height: 50px;
+}
+
+h1 {
+  color: orange;
+  padding: 0px;
+  margin: 0px;
+}
+
+.st-emotion-cache-1y4p8pa {
+  padding: 4px;
+}
+
+.st-emotion-cache-zt5igj {
+  color: orange;
+}
+
+/* Targets the main container of the markdown content, adjusting its presentation */
+.stMarkdown {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.stMarkdown ul {
+  list-style-type: none; /* Removes bullet points */
+  padding-left: 0; /* Removes padding from the list */
+  margin: 0; /* Adjust as necessary for spacing */
+}
+
+.stMarkdown li {
+  margin-bottom: 8px;
+}
+
+.stMarkdown li p {
+  margin: 0px;
+}
+
+.stMarkdown hr {
+  margin: 0px;
+  padding: 0px;
+}
