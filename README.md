@@ -47,7 +47,7 @@ To ensure the virtual environment is created within the project folder, set the 
 export PIPENV_VENV_IN_PROJECT=1
 ```
 
-Now, create a Pipenv virtual environment with:
+Now, create a virtual environment and install dependencies by running:
 
 ```bash
 pipenv install
