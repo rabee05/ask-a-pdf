@@ -1,6 +1,6 @@
 # ASK A PDF
 
-This Streamlit-based application revolutionizes question-answering on texts extracted from PDF documents by integrating the [langchain](https://python.langchain.com/docs/get_started/introduction) framework with various language models and utilizing the FAISS library for efficient similarity searches in large vector spaces.A key feature of this application is its support for local model execution using [Ollama](https://ollama.com/), enabling users to process data without relying on external API calls, thus ensuring privacy
+This Streamlit-based application question-answering on texts extracted from PDF documents by integrating the [langchain](https://python.langchain.com/docs/get_started/introduction) framework with various language models and utilizing the FAISS library for efficient similarity searches in large vector spaces.A key feature of this application is its support for local model execution using [Ollama](https://ollama.com/), enabling users to process data without relying on external API calls, thus ensuring privacy.
 
 # Features
 
