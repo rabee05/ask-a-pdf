@@ -29,6 +29,7 @@ def main():
 
     vector_db = None
     embeddings = None
+    llm = None
     file_name, input_text = text_from_pdf()
     if input_text and file_name is not None:
         chunks = text_chunker(input_text=input_text, ops=SPLITTER_OPS)
@@ -42,9 +43,12 @@ def main():
 
             if model_type == 'open_ai':
                 embeddings = OpenAIEmbeddings()
+                llm = OpenAI(temperature=0)
             elif model_type == 'local':
                 embeddings = OllamaEmbeddings(
                     base_url=OLLAMA_SERVER.get('base_url')+':' + OLLAMA_SERVER.get('port'), model=OLLAMA_SERVER.get('embedding_model'))
+                llm = Ollama(base_url=OLLAMA_SERVER.get(
+                    'base_url')+':' + OLLAMA_SERVER.get('port'), model=OLLAMA_SERVER.get('llm_model'),)
 
             if os.path.exists(store_path):
                 local_db = FAISS.load_local(folder_path=store_dir, index_name=store_name,
@@ -62,15 +66,8 @@ def main():
 
             if query:
                 docs = vector_db.similarity_search(query=query, k=3)
-
-                llm2 = Ollama(base_url=OLLAMA_SERVER.get(
-                    'base_url')+':' + OLLAMA_SERVER.get('port'), model=OLLAMA_SERVER.get('llm_model'),)
-
-                llm = OpenAI(temperature=0)
                 chain = load_qa_chain(llm=llm, chain_type='stuff')
-                chain2 = load_qa_chain(llm=llm2, chain_type='stuff')
-
-                res = chain2.invoke(
+                res = chain.invoke(
                     {"input_documents": docs, "question": query})
                 st.write(res["output_text"])
 
