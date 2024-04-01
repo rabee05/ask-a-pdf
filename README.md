@@ -106,3 +106,4 @@ streamlit run app.py
 ```
 
 Navigate to the URL provided by Streamlit in your browser to interact with the application.
+![App Main Page](https://github.com/rabee05/ask-a-pdf/blob/main/docs/app-main-page.png)
